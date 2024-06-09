@@ -8,6 +8,7 @@ type User = {
 
 declare const appRouter: _trpc_server_unstable_core_do_not_import.BuiltRouter<{
     ctx: {
+        userId: string | null;
         userRepository: {
             getUserByUsername(username: string): Promise<User | null>;
             data: User[];
@@ -22,6 +23,7 @@ declare const appRouter: _trpc_server_unstable_core_do_not_import.BuiltRouter<{
 }, _trpc_server_unstable_core_do_not_import.DecorateCreateRouterOptions<{
     auth: _trpc_server_unstable_core_do_not_import.BuiltRouter<{
         ctx: {
+            userId: string | null;
             userRepository: {
                 getUserByUsername(username: string): Promise<User | null>;
                 data: User[];
