@@ -1,5 +1,6 @@
 import * as _trpc_server from '@trpc/server';
 import * as _trpc_server_unstable_core_do_not_import from '@trpc/server/unstable-core-do-not-import';
+import { z } from 'zod';
 
 type User = {
     id: number;
@@ -50,4 +51,14 @@ declare const appRouter: _trpc_server_unstable_core_do_not_import.BuiltRouter<{
 
 type AppRouter = typeof appRouter;
 
-export type { AppRouter };
+declare const logInUserSchema: z.ZodObject<{
+    username: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    username: string;
+}, {
+    username: string;
+}>;
+
+type LogInUser = z.infer<typeof logInUserSchema>;
+
+export { type AppRouter, type LogInUser, logInUserSchema };

@@ -1,11 +1,11 @@
 import { TRPCError } from '@trpc/server';
 import { createJwtToken } from '../lib/jwt/jwt.create';
 import { router, publicProcedure } from '../trpc/trpc';
-import { loginUserSchema } from './auth.schemas';
+import { logInUserSchema } from './auth.schemas';
 
 export const authRouter = router({
   login: publicProcedure
-    .input(loginUserSchema)
+    .input(logInUserSchema)
     .mutation(async ({ input: { username }, ctx: { userRepository } }) => {
       const user = await userRepository.getUserByUsername(username);
 

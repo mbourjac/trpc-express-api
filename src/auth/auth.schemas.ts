@@ -1,9 +1,9 @@
 import { z } from 'zod';
 
-export const loginUserSchema = z.object({
+export const logInUserSchema = z.object({
   username: z
     .string()
     .trim()
     .toLowerCase()
-    .min(1, { message: 'Username field is required' }),
+    .min(1, { message: 'Please provide a username' }),
 });
