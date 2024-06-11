@@ -61,4 +61,4 @@ declare const logInUserSchema: z.ZodObject<{
 
 type LogInUser = z.infer<typeof logInUserSchema>;
 
-export { type AppRouter, type LogInUser, logInUserSchema };
+export { type AppRouter, type LogInUser, type User, logInUserSchema };
